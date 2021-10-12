@@ -4,7 +4,7 @@ import SearchByCity from "../components/SearchByCity";
 export default function Home() {
   return (
     <div>
-      Está é a Home
+      <h1>Mesha Weather</h1>
       <SearchByCity />
     </div>
   );
