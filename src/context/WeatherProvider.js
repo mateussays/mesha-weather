@@ -10,17 +10,7 @@ export default function WeatherProvider({ children }) {
   const [category, setCategory] = useState("");
   const [musics, setMusics] = useState([]);
   const [showInfo, setShowInfo] = useState(false);
-
-  //   useEffect(() => {
-  //     async function getTemp() {
-  //       const key = "63d816ad2332fc651bc33891519a32ae"
-  //       const base = "https://api.openweathermap.org/data/2.5"
-  //       const api_temp = `${base}/weather?q=Campinas&appid=${key}`;
-  //       const response = await axios.get(api_temp);
-  //       return setTemperature(response.data);
-  //     }
-  //       getTemp()
-  // }, []);
+  const [checked, setChecked] = useState(false);
 
   const handleMusics = async () => {
     const category = await temperaturePlaylist(temperature.main.temp);
@@ -36,6 +26,7 @@ export default function WeatherProvider({ children }) {
     const result = setTemperature(info);
     setShowInfo(true);
     setMusics([]);
+    setChecked(false);
     return result;
   };
 
@@ -48,6 +39,8 @@ export default function WeatherProvider({ children }) {
     musics,
     showInfo,
     category,
+    setChecked,
+    checked,
   };
 
   return (
